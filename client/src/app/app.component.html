@@ -1,21 +1,5 @@
 <app-navbar></app-navbar>
 
 <div class="container">
-  <p *ngIf="!users"><em>Loading...</em></p>
-
-<table style="margin-top: 55px;" class="table table-striped" aria-labelledby="tableLabel" *ngIf="users">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-    </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let user of users">
-      <td>{{user.id}}</td>
-      <td>{{user.userName}}</td>
-      </tr>
-    </tbody>
-</table>
+  <app-home></app-home>
 </div>
