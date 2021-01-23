@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from "ngx-bootstrap/tabs";
-import { GalleryModule, ImageItem } from 'ng-gallery';
 
 @NgModule({
   declarations: [],
@@ -14,15 +13,11 @@ import { GalleryModule, ImageItem } from 'ng-gallery';
       positionClass: "toast-bottom-right"
     }),
     TabsModule.forRoot(),
-    GalleryModule,
-    ImageItem
   ],
   exports: [
     BsDropdownModule,
     ToastrModule,
-    TabsModule,
-    GalleryModule,
-    ImageItem
+    TabsModule
   ]
 })
 export class SharedModule { }
