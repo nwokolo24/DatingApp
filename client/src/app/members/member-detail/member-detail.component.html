@@ -44,17 +44,9 @@
       </tab>
 
       <tab heading="Photos">
-        <gallery id="mixedExample" [thumbTemplate]="thumbTemplate" [itemTemplate]="itemTemplate"></gallery>
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages" style="display: inline-block; margin-bottom: 20px;">
 
-        <ng-template #thumbTemplate let-type="type"></ng-template>
-        <ng-template #itemTemplate
-             let-index="index"
-             let-type="type"
-             let-data="data"
-             let-currIndex="currIndex">
-           <span *ngIf="type === 'image' && index === currIndex" 
-           [@slideAnimation] class="item-text">{{data?.title}}</span>
-</ng-template>
+        </ngx-gallery>
       </tab>
 
       <tab heading="Messages">

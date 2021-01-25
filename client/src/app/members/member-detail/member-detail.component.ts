@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Member } from 'src/app/_models/member';
 import { MembersService } from 'src/app/_services/members.service';
-import { Gallery, GalleryRef, GalleryItem } from 'ng-gallery';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import { ViewChild } from '@angular/core';
 
@@ -17,17 +16,19 @@ export class MemberDetailComponent implements OnInit {
   galleryId = 'mixedExample';
   member: Member;
 
-  constructor(private memberService: MembersService, private route: ActivatedRoute, private gallery: Gallery) { }
+  constructor(private memberService: MembersService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loadMember();
 
     this.galleryOptions = [
       {
-          width: '600px',
+          width: '500px',
           height: '400px',
+          imagePercent: 100,
           thumbnailsColumns: 4,
-          imageAnimation: NgxGalleryAnimation.Slide
+          imageAnimation: NgxGalleryAnimation.Slide,
+          preview: false
       }
     ]
   }
@@ -48,19 +49,7 @@ export class MemberDetailComponent implements OnInit {
   loadMember(){
     this.memberService.getMember(this.route.snapshot.paramMap.get("username")).subscribe(member =>{
       this.member = member;
-    const galleryRef: GalleryRef = this.gallery.ref(this.galleryId);
-    galleryRef.addImage({
-      src: this.member.photoUrl,
-      thumb: this.member.photoUrl,
-    });
-    galleryRef.addImage({
-      src: this.member.photoUrl,
-      thumb: this.member.photoUrl,
-    });
-    galleryRef.addImage({
-      src: this.member.photoUrl,
-      thumb: this.member.photoUrl,
-    });
+      this.galleryImages = this.getImages();
     })
   }
 
