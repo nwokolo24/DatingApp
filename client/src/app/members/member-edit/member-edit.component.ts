@@ -14,7 +14,6 @@ import { MembersService } from 'src/app/_services/members.service';
   styleUrls: ['./member-edit.component.css']
 })
 export class MemberEditComponent implements OnInit {
-  spinner
   @ViewChild("editForm") editform: NgForm;
   member: Member;
   user: User;
