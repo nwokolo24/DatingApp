@@ -6,6 +6,7 @@ import { AccountService } from 'src/app/_services/account.service';
 import { User } from 'src/app/_models/user';
 import { take } from 'rxjs/operators';
 import { MembersService } from 'src/app/_services/members.service';
+import { Photo } from 'src/app/_models/photos';
 
 
 @Component({
@@ -32,10 +33,21 @@ export class PhotoEditorComponent implements OnInit {
     this.hasBaseDropZoneOver = e;
   }
 
-  setMainPhoto(photo){
+  setMainPhoto(photo: Photo){
     this.memberService.setMainPhoto(photo.id).subscribe(() => {
       this.user.photoUrl = photo.url;
       this.accountService.setCurrentUser(this.user);
+      this.member.photoUrl = photo.url;
+      this.member.photos.forEach(p => {
+        if (p.isMain) p.isMain = false;
+        if(p.id === photo.id) p.isMain = true;
+      })
+    })
+  }
+
+  deletePhoto(photoid: number){
+    this.memberService.deletePhoto(photoid).subscribe(() => {
+      this.member.photos = this.member.photos.filter(x => x.id !== photoid);
     })
   }
 
