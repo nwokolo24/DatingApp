@@ -11,11 +11,11 @@
 .member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
   border: 0;
   background: none !important;
-  color: whitesmoke;
+  color: #495057;
 }
 
 .member-tabset > .nav-tabs > li.open > a > i, .member-tabset > .nav-tabs > li:hover > a > i {
-  color: whitesmoke;
+  color: #495057;
 }
 
 .member-tabset > .nav-tabs > li.open .dropdown-menu, .member-tabset > .nav-tabs > li:hover .dropdown-menu {
@@ -29,7 +29,6 @@
 
 .member-tabset > .nav-tabs > li.active > a {
   border: 0 !important;
-  color: whitesmoke;
 }
 
 .member-tabset > .nav-tabs > li.active > a > i {
@@ -38,7 +37,7 @@
 
 .member-tabset > .tab-content {
   margin-top: -3px;
-  background-color: rgb(144, 127, 127);
+  /* background-color: rgb(242, 250, 249); */
   border: 0;
   border-top: 1px solid #eee;
   padding: 10px 10px;
